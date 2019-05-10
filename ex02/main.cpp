@@ -9,14 +9,15 @@ int main()
 	std::cout << mstack.top() << std::endl;
 	mstack.pop();
 	std::cout << mstack.size() << std::endl;
+	std::cout << "-------------" << std::endl;
 	mstack.push(3);
 	mstack.push(5);
 	mstack.push(737);
 	//[...]
 	mstack.push(0);
 
-	auto it = mstack.begin();
-	auto ite = mstack.end();
+	MutantStack<int>::iterator it = mstack.begin();
+	MutantStack<int>::iterator ite = mstack.end();
 	++it;
 	--it;
 	while (it != ite)

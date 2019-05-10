@@ -2,17 +2,20 @@
 #define FT_MUTANTSTACK_HPP
 
 #include <stack>
-#include <deque>
 
+// assuming default deque<T> as the container for stack
+// would break if underlying container don't have iter
 template <class T>
 class MutantStack : public std::stack<T>
 {
 public:
-	auto begin()
+	typedef typename std::stack<T>::container_type container_type;
+	typedef typename container_type::iterator iterator;
+	iterator begin()
 	{
 		return this->c.begin();
 	}
-	auto end()
+	iterator end()
 	{
 		return this->c.end();
 	}
