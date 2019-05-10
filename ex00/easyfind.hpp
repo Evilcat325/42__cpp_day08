@@ -2,16 +2,11 @@
 #define FT_EASYFIND_HPP
 
 #include <iostream>
-#include <typeinfo>
+#include <algorithm>
 
-template <typename T>
-int easyfind(T list, int needle)
+template <class T, class U>
+typename T::iterator easyfind(T &list, U value)
 {
-
-	for (int i = 0, e = list.size(); i < e; i++)
-		if (list[i] == needle)
-			return i;
-	return -1;
+	return std::find(list.begin(), list.end(), value);
 }
-
 #endif /* FT_easyfind_HPP */
